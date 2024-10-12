@@ -20,6 +20,8 @@ it("calculator", () => {
 })
 
 it("roman cipher", () => {
-    expect(caesarCipher(1, 'xyz')).toBe('yza');
+    expect(caesarCipher(1, 'abc')).toBe('bcd');
+    expect(caesarCipher(2, 'abc')).toBe('cde');
     expect(caesarCipher(3, 'xyz')).toBe('abc');
+    expect(caesarCipher(3, 'HeLLo')).toBe('KhOOr');
 })
