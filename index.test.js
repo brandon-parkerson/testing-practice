@@ -24,4 +24,5 @@ it("roman cipher", () => {
     expect(caesarCipher(2, 'abc')).toBe('cde');
     expect(caesarCipher(3, 'xyz')).toBe('abc');
     expect(caesarCipher(3, 'HeLLo')).toBe('KhOOr');
+    expect(caesarCipher(3, 'Hello, World!')).toBe('Khoor, Zruog!');
 })

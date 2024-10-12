@@ -61,9 +61,13 @@ function caesarCipher(num, string) {
   // split string
   let chars = string.split("");
   let newArray = [];
+  if (chars.includes("!") || chars.includes("?") || chars.includes(",")) {
+    
+  }
 
   for (let c in chars) {
     let character = chars[c];
+    // If a character is upper case
     if (character == character.toUpperCase()) {
       let charToLower = character.toLowerCase();
       let capCharIndex = alph.indexOf(charToLower);
@@ -80,6 +84,11 @@ function caesarCipher(num, string) {
 
   let newString = newArray.join("");
   return newArray, newString;
+}
+// TODO: Write function handling special chars 
+
+function special(input) {
+
 }
 
 export { capitalize, reverseString, Calculator, caesarCipher };
