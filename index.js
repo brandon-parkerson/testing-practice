@@ -58,37 +58,32 @@ function caesarCipher(num, string) {
     "y",
     "z",
   ];
-  // split string
+
   let chars = string.split("");
   let newArray = [];
-  if (chars.includes("!") || chars.includes("?") || chars.includes(",")) {
-    
-  }
 
-  for (let c in chars) {
-    let character = chars[c];
-    // If a character is upper case
-    if (character == character.toUpperCase()) {
-      let charToLower = character.toLowerCase();
-      let capCharIndex = alph.indexOf(charToLower);
-      let newChar = alph[(capCharIndex + num) % alph.length].toUpperCase();
-      newArray.push(newChar);
+  for (let c of chars) {
+    let character = c;
+
+    // Check if the character is a letter
+    if (/[a-zA-Z]/.test(character)) {
+      if (character === character.toUpperCase()) {
+        let charToLower = character.toLowerCase();
+        let capCharIndex = alph.indexOf(charToLower);
+        let newChar = alph[(capCharIndex + num) % alph.length].toUpperCase();
+        newArray.push(newChar);
+      } else {
+        let charIndex = alph.indexOf(character);
+        let newChar = alph[(charIndex + num) % alph.length];
+        newArray.push(newChar);
+      }
     } else {
-      let charIndex = alph.indexOf(character);
-
-      let newChar = alph[(charIndex + num) % alph.length];
-
-      newArray.push(newChar);
+      // If it's not a letter, keep the character as is (e.g., punctuation or spaces)
+      newArray.push(character);
     }
   }
 
-  let newString = newArray.join("");
-  return newArray, newString;
-}
-// TODO: Write function handling special chars 
-
-function special(input) {
-
+  return newArray.join("");
 }
 
 export { capitalize, reverseString, Calculator, caesarCipher };
